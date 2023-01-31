@@ -9,35 +9,53 @@ namespace JogoDaVelha
 {
     public class MenuInicial
     {
-        public static void menuInicial()
+        public void menuInicial()
         {
-            TelaLimpa.telaLimpa();
+            Console.Clear();
+            Console.WriteLine("BEM VINDO AO");
+            Console.WriteLine("JOGO DA VELHA");
+
+            Console.WriteLine("|---------------------------------------------------------------------------------------------------------|\n" +
+                            "|                                              INSTRUÇÕES                                                 |\n" +
+                            "|---------------------------------------------------------------------------------------------------------|\n" +
+                            "|Objetivo do jogo:                                                                                        |\n" +
+                            "|Ser o primeiro a fazer uma sequência de três símbolos iguais, seja em uma linha, coluna ou diagonal.     |\n" +
+                            "|                                                                                                         |\n" +
+                            "| Regras:                                                                                                 |\n" +
+                            "| - Um jogador joga com o círculo 'O' e outro com o xis 'X'.                                              |\n" +
+                            "| - Cada jogador, na sua vez, marca uma lacuna que esteja vazia.                                          |\n" +
+                            "| - Quando um jogador conquista o objetivo, ganha 1 ponto.                                                |\n" +
+                            "| - Quando há empate, o jogo informa que “deu velha”, e ninguém marca ponto.                              |\n" +
+                            "| - O jogador que joga com os xis 'X' sempre é o primeiro jogar.                                          |\n" +
+                            "|---------------------------------------------------------------------------------------------------------|");
 
             Console.WriteLine(
-                    "|---------------------------------------------------------------------------------------------------------|\n" +
-                            "|                                                  MENU                                                    |\n" +
                             "|---------------------------------------------------------------------------------------------------------|\n" +
-                            "| Insira 'i' para ver instruções                                                                        |\n" +
-                            "| Insira 'r' para reiniciar o jogo                                                                       |\n" +
-                            "| Insira 's' para sair                                                                                    |\n" +
-                            "| Ou insira qualquer outro digito para retornar ao menu principal                                         |\n" +
+                            "|                                                 MENU                                                    |\n" +
+                            "|---------------------------------------------------------------------------------------------------------|\n" +
+                            "|                   Insira 'r' para iniciar o jogo                                                      |\n" +
+                            "|                   Insira 's' para sair                                                                  |\n" +
+                            "|                   Ou insira qualquer outro digito para retomar a partida.                               |\n" +
                             "|---------------------------------------------------------------------------------------------------------|\n" +
                             "Insira sua opção aqui:");
 
-            string choose = Console.ReadLine().ToLower();
+            string escolher = Console.ReadLine().ToLower();
 
-            if (choose.Equals("s"))
+            switch (escolher)
             {
-                FimDeJogo.fimDeJogo();
-            }
-            else if (choose.Equals("i"))
-            {
-                Instrucoes.instrucoes();
-                menuInicial();
-            }
-            else
-            {
-                Comecar.comecar();
+                case "s":
+                    Console.WriteLine("Até mais!");
+                    Environment.Exit(0);
+                    break;
+
+                case "r":
+                    Jogo jogo = new Jogo();
+                    break;
+
+                default:
+                    Console.Clear();
+                    break;
+
             }
         }
     }

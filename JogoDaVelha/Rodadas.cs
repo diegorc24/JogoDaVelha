@@ -10,7 +10,7 @@ namespace JogoDaVelha
     {
         public static void rodadas(int numeroRodada)
         {
-            Console.WriteLine("------------------------------------------------ RODADA %s ------------------------------------------------\n" + numeroRodada);
+            Console.WriteLine($"------------------------------------------------ RODADA {numeroRodada} ------------------------------------------------\n");
         }
     }
 }
